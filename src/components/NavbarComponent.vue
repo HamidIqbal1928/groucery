@@ -9,8 +9,16 @@
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
-
    
+      <div class="navbar">
+        <v-btn to="/">Home</v-btn> |
+        <v-btn to="/about">About</v-btn> |
+        <v-btn to="/services">Services</v-btn> |
+        <v-btn to="/contact-us">Contact US</v-btn> |
+        <v-btn to="/users">Users</v-btn>
+        </div>
+
+        <v-spacer></v-spacer>
     <v-badge color="#FF6D59" overlap content="2" class="mr-2 mt-1">
       <v-avatar color="#FFF0EE" size="40">
         <v-icon x-small color="#FF6D59"> mdi-heart</v-icon>
@@ -158,7 +166,7 @@ export default {
 }
 
 .menu-icon {
-  color: #1976D2; /* Customize icon color */
+  color: green/* Customize icon color */
 }
 .avatar{
   margin-left: 2.5rem; 

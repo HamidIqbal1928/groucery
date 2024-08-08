@@ -9,7 +9,6 @@
 
         <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
           Password
-
           <a class="text-caption text-decoration-none text-blue" href="#" rel="noopener noreferrer" target="_blank">
             Forgot login password?</a>
         </div>
@@ -21,106 +20,88 @@
 
         <v-card class="mb-12" color="surface-variant" variant="tonal">
           <v-card-text class="text-medium-emphasis text-caption">
-            Warning: After 3 consecutive failed login attempts, you account will be temporarily locked for three hours.
+            Warning: After 3 consecutive failed login attempts, your account will be temporarily locked for three hours.
             If you must login now, you can also click "Forgot login password?" below to reset the login password.
           </v-card-text>
         </v-card>
 
         <v-btn class="mb-8" type="submit" color="blue" size="large" variant="tonal" block v-on:click="login()">
           Log In
-          <a href="../src/views/HomeView.vue" target="_blank"> </a>
         </v-btn>
 
         <v-card-text class="text-center">
-          <div>
+          <v-btn @click="dialogAddUser = true" class="Btn" color="blue">
+            Sign Up
+            <v-icon icon="mdi-account" class="ml-3"></v-icon>
+          </v-btn>
 
-<div class="text-right pa-4">
-  <v-btn @click="dialogAddUser = true" class="Btn" color="blue">
-    Sign Up
-    <v-icon icon="mdi-account" class="ml-3"></v-icon>
-  </v-btn>
+          <v-dialog v-model="dialogAddUser" transition="dialog-top-transition" max-width="600">
+            <v-card title="Add New User Details">
+              <template v-slot:text>
+                <div>
+                  <div class="text-subtitle-1 text-medium-emphasis">Name</div>
+                  <v-text-field density="compact" placeholder="Enter Name" prepend-inner-icon="mdi-account"
+                    v-model="userData.name" variant="outlined" color="blue" :rules="dataValidationRules.name"
+                    required></v-text-field>
 
-  <v-dialog v-model="dialogAddUser" transition="dialog-top-transition" max-width="600">
-    <v-card title="Add New User Details">
-      <template v-slot:text>
-        <div>
-          <div class="text-subtitle-1 text-medium-emphasis">Name</div>
-          <v-text-field density="compact" placeholder="Enter Name" prepend-inner-icon="mdi-account"
-            v-model="userData.name" variant="outlined" color="blue" :rules="dataValidationRules.name"
-            required></v-text-field>
+                  <div class="text-subtitle-1 text-medium-emphasis">Account</div>
+                  <v-text-field density="compact" placeholder="Email address" prepend-inner-icon="mdi-email-outline"
+                    variant="outlined" v-model="userData.email" color="blue" :rules="dataValidationRules.email"
+                    required></v-text-field>
 
-          <div class="text-subtitle-1 text-medium-emphasis">Account</div>
-          <v-text-field density="compact" placeholder="Email address" prepend-inner-icon="mdi-email-outline"
-            variant="outlined" v-model="userData.email" color="blue" :rules="dataValidationRules.email"
-            required></v-text-field>
+                  <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
+                    Password
+                  </div>
+                  <v-text-field :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+                    :type="visible ? 'text' : 'password'" density="compact" placeholder="Enter your password"
+                    prepend-inner-icon="mdi-lock-outline" variant="outlined" color="blue" v-model="userData.password"
+                    @click:append-inner="visible = !visible" required></v-text-field>
 
-          <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
-            Password
-          </div>
-          <v-text-field :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
-            :type="visible ? 'text' : 'password'" density="compact" placeholder="Enter your password"
-            prepend-inner-icon="mdi-lock-outline" variant="outlined" color="blue" v-model="userData.password"
-            @click:append-inner="visible = !visible" required></v-text-field>
+                  <div class="text-subtitle-1 text-medium-emphasis">Address</div>
+                  <v-text-field density="compact" placeholder="Enter Address" prepend-inner-icon="mdi-home"
+                    v-model="userData.address" variant="outlined" :rules="dataValidationRules.address"
+                    color="blue" required></v-text-field>
+                </div>
+              </template>
 
-          <!-- <div class="text-subtitle-1 text-medium-emphasis">Age</div>
-          <v-text-field density="compact" placeholder="Enter your age" v-model="userData.age"
-            variant="outlined"  color="blue" required></v-text-field> -->
-
-          <div class="text-subtitle-1 text-medium-emphasis">Address</div>
-          <v-text-field density="compact" placeholder="Enter Address" prepend-inner-icon="mdi-home"
-            v-model="userData.address" variant="outlined" :rules="dataValidationRules.address"
-            color="blue" required></v-text-field>
-        </div>
-      </template>
-
-      <template v-slot:actions>
-        <v-btn class="ms-auto " color="red" text="Close" @click="dialogAddUser = false">Close
-          <v-icon icon="mdi-minus-circle" end></v-icon></v-btn>
-        <v-spacer></v-spacer>
-        <v-btn class="ms-auto" color="primary " text="Add" @click="logUserData()">Submit
-          <v-icon icon="mdi-checkbox-marked-circle" end></v-icon>
-        </v-btn>
-      </template>
-    </v-card>
-  </v-dialog>
-</div>
-<!-- <tbody>
-            <tr v-for="(item, index) in itemArray" :key="index">
-              <td>{{ index + 1 }}</td>
-              <td>{{ item.name }}</td>
-              <td>{{ item.email }}</td>
-              <td>{{ item.password }}</td>
-              <td>{{ item.address }}</td>
-            </tr>
-              </tbody> -->
-</div>
+              <template v-slot:actions>
+                <v-btn class="ms-auto" color="red" text="Close" @click="dialogAddUser = false">
+                  Close
+                  <v-icon icon="mdi-minus-circle" end></v-icon>
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn class="ms-auto" color="primary" text="Add" @click="logUserData()">
+                  Submit
+                  <v-icon icon="mdi-checkbox-marked-circle" end></v-icon>
+                </v-btn>
+              </template>
+            </v-card>
+          </v-dialog>
         </v-card-text>
       </v-card>
-
     </div>
     <div v-else>
-      <!-- <div v-if="this.$vuetify.breakpoint.mdAndUp"> -->
+      <div class="home-view">
         <HomeView />
-      <!-- </div>
-      <div v-else>
+      </div>
+      <div class="mobile-view">
         <MobileView />
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 import HomeView from '@/views/HomeView.vue';
+import MobileView from '@/views/MobileView.vue';
 import p1 from './assets/hamid.png';
 import p2 from './assets/noman.png';
-
-// import MobileView from '@/views/MobileView.vue';
-
 
 export default {
   name: "App",
   components: {
     HomeView,
-    // MobileView
+    MobileView
   },
   data() {
     return {
@@ -156,43 +137,50 @@ export default {
           address: "Chak no 28 Wb Vehari",
           login: false
         }
-      
       ],
       loginForm: true,
       dataValidationRules: {
         email: [
           value => {
-            if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
-            return 'Must be a valid e-mail.'
-          },],
+            if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true;
+            return 'Must be a valid e-mail.';
+          },
+        ],
         password: [
           value => {
-            if (value?.length >= 8 && /[0-9-]+/.test(value)) return true
-
-            return 'Password needs to be at least 8 digits.'
-          },],
-      }
-    }
+            if (value?.length >= 8 && /[0-9-]+/.test(value)) return true;
+            return 'Password needs to be at least 8 digits.';
+          },
+        ],
+      },
+      visible: false
+    };
   },
   beforeMount() {
     this.fetchData();
     this.checkLoggedIn();
     this.update();
   },
+  mounted() {
+    window.addEventListener('resize', this.checkScreenSize);
+    this.checkScreenSize();
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkScreenSize);
+  },
   methods: {
     fetchData() {
       if (localStorage.getItem('itemsJson') == null) {
-        this.itemArray = this.usersArray
-        localStorage.setItem('itemsJson', JSON.stringify(this.itemArray))
+        this.itemArray = this.usersArray;
+        localStorage.setItem('itemsJson', JSON.stringify(this.itemArray));
       }
     },
     update() {
       if (localStorage.getItem('itemsJson') == null) {
         this.itemsArray = this.usersArray;
-        localStorage.setItem('itemsJson', JSON.stringify(this.itemsArray))
-      }
-      else {
-        this.newitemsinArray = localStorage.getItem('itemsJson')
+        localStorage.setItem('itemsJson', JSON.stringify(this.itemsArray));
+      } else {
+        this.newitemsinArray = localStorage.getItem('itemsJson');
         this.itemsArray = JSON.parse(this.newitemsinArray);
       }
     },
@@ -216,50 +204,51 @@ export default {
       this.userData.age = 0;
     },
     checkLoggedIn() {
-      // Check if user is logged in by looking at localStorage or session
       if (localStorage.getItem('isLoggedIn')) {
-        this.loginForm = false; // Set to false to show logged-in view
+        this.loginForm = false;
       }
     },
-    // login() {
-    // Validate email and password (you can use vuelidate or custom logic)
-    // const storedItems = JSON.parse(localStorage.getItem('itemsJson'));
-    // const user = storedItems.find(item => this.userData.email===item.email)
-    // if (user) {
-    //   if (this.userData.email === user.email && this.userData.password === user.password) {
-    //   // Redirect to home page (replace with your route)
-    // localStorage.setItem('isLoggedIn', true);
-    //   this.loginForm = false; // Show logged-in view
-    // } 
-    //     else {
-    //       // Show invalid email or password message
-    //       alert('Invalid credentials');
-    //     }
-    //   }else{
-    //     alert("Data not found data against "+ this.userData.email);
-    //   }
-    // },
     login() {
-      // Example of how login might work
       const userEmail = this.userData.email;
       const storedItems = JSON.parse(localStorage.getItem('itemsJson'));
-      const user = storedItems.find(item => this.userData.email === item.email)
+      const user = storedItems.find(item => this.userData.email === item.email);
 
       if (user) {
         if (this.userData.email === user.email && this.userData.password === user.password) {
           localStorage.setItem('isLoggedIn', true);
           localStorage.setItem('userEmail', userEmail);
-          this.loginForm = false; // Redirect to home page after login
+          this.loginForm = false;
           this.$router.push('/');
         } else {
           alert('Invalid credentials');
         }
       }
     },
-
     signUp() {
-      this.$router.push('/signup')
+      this.$router.push('/signup');
+    },
+    checkScreenSize() {
+      this.isDesktop = window.innerWidth >= 960;
     }
   }
-}
+};
 </script>
+
+<style scoped>
+.header-view {
+  display: none;
+}
+
+.mobile-view {
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .header-view {
+    display: block;
+  }
+  .mobile-view {
+    display: none;
+  }
+}
+</style>
