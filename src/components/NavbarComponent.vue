@@ -9,13 +9,8 @@
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
-    <div class="navbar">
-        <v-btn to="/">Home</v-btn> |
-        <v-btn to="/Products">Products</v-btn> |
-        <v-btn to="/Bundle">Bundle</v-btn> |
-        <v-btn to="/Clients">Client</v-btn> |
-        <v-btn to="/Patner">Partner</v-btn> 
-    </div>
+
+   
     <v-badge color="#FF6D59" overlap content="2" class="mr-2 mt-1">
       <v-avatar color="#FFF0EE" size="40">
         <v-icon x-small color="#FF6D59"> mdi-heart</v-icon>

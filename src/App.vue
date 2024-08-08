@@ -32,10 +32,68 @@
         </v-btn>
 
         <v-card-text class="text-center">
-          <v-btn class="text-blue text-decoration-none" href="#" rel="noopener noreferrer" target="_blank"
-            v-on:click="signUp()">
-            Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
-          </v-btn>
+          <div>
+
+<div class="text-right pa-4">
+  <v-btn @click="dialogAddUser = true" class="Btn" color="blue">
+    Sign Up
+    <v-icon icon="mdi-account" class="ml-3"></v-icon>
+  </v-btn>
+
+  <v-dialog v-model="dialogAddUser" transition="dialog-top-transition" max-width="600">
+    <v-card title="Add New User Details">
+      <template v-slot:text>
+        <div>
+          <div class="text-subtitle-1 text-medium-emphasis">Name</div>
+          <v-text-field density="compact" placeholder="Enter Name" prepend-inner-icon="mdi-account"
+            v-model="userData.name" variant="outlined" color="blue" :rules="dataValidationRules.name"
+            required></v-text-field>
+
+          <div class="text-subtitle-1 text-medium-emphasis">Account</div>
+          <v-text-field density="compact" placeholder="Email address" prepend-inner-icon="mdi-email-outline"
+            variant="outlined" v-model="userData.email" color="blue" :rules="dataValidationRules.email"
+            required></v-text-field>
+
+          <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
+            Password
+          </div>
+          <v-text-field :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+            :type="visible ? 'text' : 'password'" density="compact" placeholder="Enter your password"
+            prepend-inner-icon="mdi-lock-outline" variant="outlined" color="blue" v-model="userData.password"
+            @click:append-inner="visible = !visible" required></v-text-field>
+
+          <!-- <div class="text-subtitle-1 text-medium-emphasis">Age</div>
+          <v-text-field density="compact" placeholder="Enter your age" v-model="userData.age"
+            variant="outlined"  color="blue" required></v-text-field> -->
+
+          <div class="text-subtitle-1 text-medium-emphasis">Address</div>
+          <v-text-field density="compact" placeholder="Enter Address" prepend-inner-icon="mdi-home"
+            v-model="userData.address" variant="outlined" :rules="dataValidationRules.address"
+            color="blue" required></v-text-field>
+        </div>
+      </template>
+
+      <template v-slot:actions>
+        <v-btn class="ms-auto " color="red" text="Close" @click="dialogAddUser = false">Close
+          <v-icon icon="mdi-minus-circle" end></v-icon></v-btn>
+        <v-spacer></v-spacer>
+        <v-btn class="ms-auto" color="primary " text="Add" @click="logUserData()">Submit
+          <v-icon icon="mdi-checkbox-marked-circle" end></v-icon>
+        </v-btn>
+      </template>
+    </v-card>
+  </v-dialog>
+</div>
+<!-- <tbody>
+            <tr v-for="(item, index) in itemArray" :key="index">
+              <td>{{ index + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.password }}</td>
+              <td>{{ item.address }}</td>
+            </tr>
+              </tbody> -->
+</div>
         </v-card-text>
       </v-card>
 
@@ -66,6 +124,14 @@ export default {
   },
   data() {
     return {
+      dialogAddUser: false,
+      userData1: {
+        name: '',
+        email: '',
+        address: '',
+        password: '',
+        age: 0
+      },
       userData: {
         email: '',
         password: '',
@@ -111,6 +177,7 @@ export default {
   beforeMount() {
     this.fetchData();
     this.checkLoggedIn();
+    this.update();
   },
   methods: {
     fetchData() {
@@ -118,6 +185,35 @@ export default {
         this.itemArray = this.usersArray
         localStorage.setItem('itemsJson', JSON.stringify(this.itemArray))
       }
+    },
+    update() {
+      if (localStorage.getItem('itemsJson') == null) {
+        this.itemsArray = this.usersArray;
+        localStorage.setItem('itemsJson', JSON.stringify(this.itemsArray))
+      }
+      else {
+        this.newitemsinArray = localStorage.getItem('itemsJson')
+        this.itemsArray = JSON.parse(this.newitemsinArray);
+      }
+    },
+    logUserData() {
+      this.itemArray.push({
+        name: this.userData.name,
+        email: this.userData.email,
+        address: this.userData.address,
+        password: this.userData.password,
+        age: this.userData.age
+      });
+      localStorage.setItem('itemsJson', JSON.stringify(this.itemArray));
+      this.clearForm();
+      this.dialogAddUser = false;
+    },
+    clearForm() {
+      this.userData.name = '';
+      this.userData.address = '';
+      this.userData.email = '';
+      this.userData.password = '';
+      this.userData.age = 0;
     },
     checkLoggedIn() {
       // Check if user is logged in by looking at localStorage or session

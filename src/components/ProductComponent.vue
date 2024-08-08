@@ -1,5 +1,7 @@
 <template>
-  <v-row justify="center" class="space px-16">
+  <v-app>
+    <v-main>
+      <v-row justify="center" class="space px-16">
     <v-col cols="12" xs="12" sm="6" md="4" v-for="(product, i) in products" :key="i">
       <v-card class="mx-auto rounded-xl" max-width="300" color="" flat outlined style="border: 2px solid green;">
         <div align="center" justify="center">
@@ -32,6 +34,8 @@
       </v-card>
     </v-col>
   </v-row>
+    </v-main>
+  </v-app>
 </template>
 
 <script>

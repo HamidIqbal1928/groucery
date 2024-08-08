@@ -4,13 +4,13 @@ import PackComponent from '../components/PackComponent.vue';
 import ClientComponent from '../components/ClientComponent.vue';
 import PartnerComponent from '../components/ClientComponent.vue';
 import HomeView from '../views/HomeView.vue';
-import AboutView from '../views/AboutView.vue';
+import AboutView from '../views/MobileView.vue';
 
 const routes = [
-  { path: '/Products', name: 'Product',component: ProductComponent },
-  { path: '/Bundle', name: 'Bundle',component: PackComponent },
-  { path: '/Clients', name: 'Clients',component: ClientComponent },
-  { path: '/Patner',name: 'Patner', component: PartnerComponent },
+  { path: '/products', name: 'Product',component: ProductComponent },
+  { path: '/bundle', name: 'Bundle',component: PackComponent },
+  { path: '/clients', name: 'Clients',component: ClientComponent },
+  { path: '/partner',name: 'Partner', component: PartnerComponent },
   { path: '/', name: 'Home',component: HomeView},
   { path: '/about', name: 'About',component: AboutView},
 ];
