@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <NavbarComponent :cart="cart" />
+    <v-main>
     <v-container fluid>
       <v-row>
         <v-col cols="12">
-          <div class="mt-6 ">
+          <div class="mt-6">
             <v-card class="mx-auto rounded-xl" flat>
               <v-img src="cover2.png" max-height="100%" max-width="100%" contain>
                 <v-card-title class="top ml-10">
@@ -52,7 +52,7 @@
             <v-spacer></v-spacer>
             <v-btn rounded color="green" dark class="px-8">See All</v-btn>
           </v-toolbar>
-          <ProductComponent @add-to-cart="addToCart" />
+          <ProductComponent/>
           <v-card flat color="#E2F2E5" class="rounded-xl mt-8">
             <v-toolbar flat color="transparent" class="mb-4">
               <v-toolbar-title class="text-h6 mt-5" id="bundle">Popular Bundle Pack</v-toolbar-title>
@@ -108,14 +108,11 @@
         </v-col>
       </v-row>
     </v-container>
-    <FooterComponent />
-    <!-- <router-view /> -->
+  </v-main>
   </v-app>
 </template>
 
 <script>
-import NavbarComponent from '../components/NavbarComponent.vue';
-import FooterComponent from '../components/FooterComponent.vue';
 import CategoryComponent from '../components/CategoryComponent.vue';
 import ProductComponent from '../components/ProductComponent.vue';
 import PackComponent from '../components/PackComponent.vue';
@@ -129,8 +126,6 @@ export default {
     toggle_exclusive: 1,
   }),
   components: {
-    NavbarComponent,
-    FooterComponent,
     CategoryComponent,
     ProductComponent,
     PackComponent,

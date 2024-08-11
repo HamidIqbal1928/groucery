@@ -82,26 +82,27 @@
     </div>
     <div v-else>
       <div class="home-view">
-        <HomeView />
+        <AllView />
       </div>
       <div class="mobile-view">
         <MobileView />
-      </div>
+      </div>  
     </div>
+
   </div>
 </template>
 
 <script>
-import HomeView from '@/views/HomeView.vue';
 import MobileView from '@/views/MobileView.vue';
 import p1 from './assets/hamid.png';
 import p2 from './assets/noman.png';
+import AllView from './views/AllView.vue';
 
 export default {
   name: "App",
   components: {
-    HomeView,
-    MobileView
+    MobileView,
+    AllView
   },
   data() {
     return {

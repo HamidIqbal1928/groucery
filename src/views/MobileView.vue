@@ -56,11 +56,10 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app temporary class="bar"  color="primary">
+    <v-navigation-drawer v-model="drawer" app temporary class="bar"  color="white">
       <v-list-item>
        
       </v-list-item>
-      <v-divider></v-divider>
       <v-list-item-group>
         <v-list class="item-group">
           <v-list-item
@@ -89,9 +88,8 @@ export default {
     drawer: false,
     links: [
       { name: "Home", route: "/", icon: "mdi-home" },
-      { name: "About", route: "/about", icon: "mdi-information" },
-      { name: "Services", route: "/services", icon: "mdi-newspaper-variant" },
-      { name: "Users", route: "/users", icon: "mdi-account" },
+      { name: "Products", route: "/product", icon: "mdi-information" },
+      { name: "Bundles", route: "/bundle", icon: "mdi-newspaper-variant" },
       { name: "Contact Us ", route: "/contact-us", icon: "mdi-chevron-right" },
     ],
   }),
@@ -109,12 +107,13 @@ export default {
   text-decoration: none;
   } */
 .bar {
-  background-color: primary ;
+  background-color: 'primary' ;
 }
 
 .routelinks {
 font-weight: bold;
-color: white;
+color: green;
+/* color: rgb(212, 210, 210); */
 text-decoration: none; /* Remove underline */
 padding: 10px 20px; /* Add padding to make it look like a button */
 /* border: 2px solid black; Add a border */
