@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <v-row justify="center" class="space px-16">
-    <v-col cols="12" xs="12" sm="6" md="4" v-for="(product, i) in products" :key="i">
+    <v-col cols="12" xs="12" sm="6" md="4" lg="3" v-for="(product, i) in products" :key="i">
       <v-card class="mx-auto rounded-xl" max-width="300" color="" flat outlined style="border: 2px solid green;">
         <div align="center" justify="center">
           <v-img max-height="200" max-width="300" contain :src="product.img"></v-img>

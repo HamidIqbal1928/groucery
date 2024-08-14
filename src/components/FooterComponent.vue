@@ -80,11 +80,9 @@
     </v-card>
   </v-footer>
 </template>
-
 <script>
 export default {
   data: () => ({
-    
   }),
 };
 </script>
