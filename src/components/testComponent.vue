@@ -1,6 +1,9 @@
 <template>
     <div>
-      <v-title> Contact-us</v-title>
+      <v-toolbar flat color="transparent">
+            <v-toolbar-title class="text-h4" id="title">Contact Us </v-toolbar-title>
+        </v-toolbar>
+      
       <v-sheet class="mx-auto" max-width="400">
         <v-form @submit.prevent ref="form">
           <v-text-field v-model="userData.name" class="text-black" label="Name" append-inner-icon="mdi-account"

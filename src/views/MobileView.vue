@@ -12,16 +12,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="mr-1">
       </v-app-bar-nav-icon>
 
-      <v-badge color="#FF6D59" overlap content="2" class="mr-2 mt-1 mb-1">
-      <v-avatar color="#FFF0EE" size="30">
-        <v-icon xx-small color="#FF6D59"> mdi-heart</v-icon>
-      </v-avatar>
-    </v-badge>
-    <v-badge color="#41AB55" overlap content="3" class="mr-2 mt-1">
-      <v-avatar color="#ECF7EE" size="30">
-        <v-icon x-small color="#41AB55">mdi-cart</v-icon>
-      </v-avatar>
-    </v-badge>
+
       <v-menu  offset-y class="custom-menu" id="circular-icon">
           <template v-slot:activator="{ props }">
             <v-btn icon v-bind="props" class="menu-icon">
@@ -73,6 +64,19 @@
             <span class="ml-4">{{ link.name }}</span>
           </v-list-item>
         </v-list>
+
+       <div class="badge">
+        <v-badge color="#FF6D59" overlap content="2" class="mr-2 mt-1 mb-1">
+      <v-avatar color="#FFF0EE" size="30">
+        <v-icon xx-small color="#FF6D59"> mdi-heart</v-icon>
+      </v-avatar>
+    </v-badge>
+    <v-badge color="#41AB55" overlap content="3" class="ml-4 mt-1 ">
+      <v-avatar color="#ECF7EE" size="30">
+        <v-icon x-small color="#41AB55">mdi-cart</v-icon>
+      </v-avatar>
+    </v-badge>
+       </div>
     
       </v-list-item-group>
     </v-navigation-drawer>
@@ -103,9 +107,10 @@ export default {
 <style scoped>
 
 
-/* .v-list-item {
-  text-decoration: none;
-  } */
+.badge{
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
 .bar {
   background-color: 'primary' ;
 }

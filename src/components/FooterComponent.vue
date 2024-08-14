@@ -74,6 +74,9 @@
           <v-card-text class="grey--text mt-n4"> +92 321-9326163 </v-card-text>
         </v-col>
       </v-row>
+      <div class="copy">
+        <h3>CopyRight@2024| All rights reserved.</h3>
+      </div>
     </v-card>
   </v-footer>
 </template>
@@ -87,6 +90,16 @@ export default {
 </script>
 
 <style>
+.copy{
+  color: grey;
+    text-align: center;
+    margin-bottom: -2rem;
+    margin-top: 2rem;
+    border-top: 1px solid grey;
+}
+.copy h3{
+  margin-top: 1rem;
+}
 .footer{
   background-color: rgb(39, 38, 38);
 }

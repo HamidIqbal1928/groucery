@@ -4,7 +4,7 @@
         <v-toolbar flat color="transparent" class="mt-5">
             <v-toolbar-title class="text-h4" id="title">Popular Product</v-toolbar-title>
         </v-toolbar>
-            <v-row dense no-gutters class="mr-4 ml-4">
+            <v-row dense no-gutters class="mr-4 ml-4 mb-2">
           <v-col cols="12" xs="12" sm="6" md="4" lg="3" v-for="(product, i) in products" :key="i">
             <v-card class="mx-auto rounded-xl mt-1" max-width="300" color="" flat outlined style="border: 2px solid green;">
               <div align="center" justify="center">
