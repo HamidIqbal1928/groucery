@@ -50,7 +50,7 @@ export default {
       { img: "fruit-box.png", title: "Full Box", subtitle: "Mango, Nuts, Apple, Bannas", price: "Rs:$60", bpm:1 },
       { img: "medicine.png", title: "Medicine Pack", subtitle: "Tomato, Cabbage, Oil, Cauliflower", price: "Rs:$85", bpm:1 },
       { img: "oil.png", title: "Medium Oil Pack", subtitle: "Cooking Oil ", price: "Rs:$45", bpm:1 },
-      { img: "p4.png", title: "Medium Box", subtitle: "Strawberry, orange & others", price: "Rs:$40", bpm:1 },
+      { img: "medi.png", title: "Medium Box", subtitle: "Strawberry, orange & others", price: "Rs:$40", bpm:1 },
       { img: "p5.png", title: "Medium Box", subtitle: "Tomato, Cabbage, Oil,Cauliflower", price: "Rs:$15", bpm:1 },
       { img: "p6.png", title: "small Box", subtitle: "Small pack of limes", price: "Rs:$25", bpm:1 },
     ],

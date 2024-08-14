@@ -53,9 +53,9 @@
         { img: "x-small.png", title: " Extra-small Box", subtitle: "One food box", price: "Rs: $25",bpm:1},
 
         { img: "medicine.png", title: "Medicine Pack", subtitle: "Tomato, Cabbage, Oil, Cauliflower", price: "Rs:$85", bpm:1 },
-        { img: "injection.png", title: "Fresh fruit", subtitle: "1kg-10kg", price: "Rs: $24",bpm:1 },
-        { img: "Panadol.png", title: "Fruit Products", subtitle: "1kg-10Kg", price: "Rs: $40",bpm:1 },
-        { img: "medi.png", title: "Vegitable Products", subtitle: "1bkt-10bkt", price: "Rs: $150",bpm:1},
+        { img: "injection.png", title: "injection pack", subtitle: "1pc-10pc", price: "Rs: $44",bpm:1 },
+        { img: "panadol.png", title: "panadol pack", subtitle: "1pc-10pc", price: "Rs: $12",bpm:1 },
+        { img: "medi.png", title: "Medium Pack", subtitle: "1box-10box", price: "Rs: $150",bpm:1},
        
         { img: "oil.png", title: "Office Products", subtitle: "1kg-10Kg", price: "Rs: $10",bpm:1 },
         { img: "p4.png", title: "Medium Box", subtitle: "Strawberry, orange & others", price: "Rs:$40", bpm:1 },
