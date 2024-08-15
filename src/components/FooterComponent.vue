@@ -29,17 +29,17 @@
           </v-card-text> -->
           <div class="icon">
           <v-btn icon href="https://www.facebook.com/hamid.iqbal.12576049?mibextid=ZbWKwL " target="blank"
-            class="mt-6 mr-2">
+            class="mt-6 ">
             <v-icon size="30" color="blue-darken-2">mdi-facebook</v-icon>
           </v-btn>
-          <v-btn icon href="https://github.com/HamidIqbal1928?tab=repositories" target="blank" class="mt-6 mr-2">
+          <v-btn icon href="https://github.com/HamidIqbal1928?tab=repositories" target="blank" class="mt-6  ">
             <v-icon size="30" center>mdi-github</v-icon>
           </v-btn>
-          <v-btn icon href="https://www.linkedin.com/in/hamid-iqbal-a50430247/" target="blank" class="mt-6 mr-2">
+          <v-btn icon href="https://www.linkedin.com/in/hamid-iqbal-a50430247/" target="blank" class="mt-6  ">
             <v-icon size="30" color="blue">mdi-linkedin</v-icon>
           </v-btn>
           <v-btn icon href=" https://www.instagram.com/hamid_iqbal77?igsh=eTk5YzNvdjFpdXNq " target="_blank"
-            class="mt-6 mr-2">
+            class="mt-6 ">
             <v-icon size="30" color="red">mdi-instagram</v-icon>
           </v-btn>
         </div>
@@ -109,5 +109,11 @@ export default {
 }
 .grey--text {
   color: gray !important;
+}
+@media only screen and (max-width: 600px) {
+  /* Ensure the footer behaves correctly on small screens */
+  .footer {
+    padding-bottom: 0;
+  }
 }
 </style>

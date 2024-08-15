@@ -103,6 +103,12 @@
   .green-border {
     border: 2px solid green;
   }
+  .btn{
+  display: flex;
+  flex-direction: row;
+  margin-left: 3rem;
+}
+
   
   .small-btn {
     padding: 0 !important;

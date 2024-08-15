@@ -75,7 +75,7 @@
       </v-menu>
     </v-app-bar>
     <router-view />
-    <FooterComponent />
+    <FooterComponent/>
     </v-app>
   </template>
   
