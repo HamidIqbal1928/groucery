@@ -59,8 +59,8 @@
 
                   <div class="text-subtitle-1 text-medium-emphasis">Address</div>
                   <v-text-field density="compact" placeholder="Enter Address" prepend-inner-icon="mdi-home"
-                    v-model="userData.address" variant="outlined" :rules="dataValidationRules.address"
-                    color="blue" required></v-text-field>
+                    v-model="userData.address" variant="outlined" :rules="dataValidationRules.address" color="blue"
+                    required></v-text-field>
                 </div>
               </template>
 
@@ -86,7 +86,7 @@
       </div>
       <div class="mobile-view">
         <MobileView />
-      </div>  
+      </div>
     </div>
 
   </div>
@@ -143,8 +143,10 @@ export default {
       dataValidationRules: {
         email: [
           value => {
-            if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true;
-            return 'Must be a valid e-mail.';
+            if (/^[a-z.-]+@[a-z.-]*\d{3,10}[a-z.-]*\.[a-z]+$/i.test(value)) {
+              return true;
+            }
+            return 'Email must be valid and contain between 3 and 10 numbers after the @ symbol.';
           },
         ],
         password: [
@@ -248,6 +250,7 @@ export default {
   .header-view {
     display: block;
   }
+
   .mobile-view {
     display: none;
   }

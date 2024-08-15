@@ -81,20 +81,105 @@
   
   <script>
   import FooterComponent from '@/components/FooterComponent.vue';
-
-  
-  
   export default {
     name: "HomeView",
     data: () => ({
+      return: {
+        currentUser: null,
+      },
       toggle_exclusive: 1,
-    }),
+  }),
+  mounted() {
+    this.getCurrentUser();
+    this.checkLoggedIn();
+  },
+  methods: {
+    getCurrentUser() {
+      const storedItems = JSON.parse(localStorage.getItem('itemsJson'));
+      const userEmail = localStorage.getItem('userEmail'); // Get the logged-in user's email from localStorage
+
+      console.log("Stored items:", storedItems); // Debug log
+      console.log("User email from localStorage:", userEmail); // Debug log
+
+      if (storedItems && userEmail) {
+        this.currentUser = storedItems.find(item => item.email === userEmail);
+        console.log("Current user:", this.currentUser); // Debug log
+      }
+    },
+    checkLoggedIn() {
+        // Check if user is logged in by looking at localStorage or session
+        if (localStorage.getItem('isLoggedIn')) {
+          this.loginForm = false; // Set to false to show logged-in view
+        }
+      },
+    logout() {
+  // Remove the logged-in user's email and other related data
+  localStorage.removeItem('isLoggedIn'); // Remove login status
+  localStorage.removeItem('userEmail'); // Remove the logged-in user's email, if stored
+  // Remove any other user-specific data you might have
+  localStorage.removeItem('userData');
+this.currentUser = null 
+  window.location.reload(); 
+  this.$router.push('/login');
+}
+  },
     components: {
       FooterComponent,
     },
   };
   </script>
   <style>
+  .v-list-item-avatar {
+  margin-right: 16px;
+}
+.image {
+  width: 5%;
+  margin-right: 65rem;
+}
+.navbar {
+  margin-left: -8rem;
+}
+
+.custom-menu .v-list {
+  background-color: #f5f5f5; /* Light gray background */
+  border-radius: 18px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.custom-menu .menu-list-item {
+  
+  border-bottom: 1px solid #ddd; /* Divider line between items */
+}
+
+.custom-menu .menu-list-item:last-child {
+  border-bottom: none; /* Remove bottom border for last item */
+}
+
+.menu-title {
+  font-weight: bold;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: #333; /* Darker text for title */
+}
+
+.menu-subtitle {
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  color: #777; /* Lighter text for subtitle */
+}
+
+.menu-icon {
+  color: #1976D2; /* Customize icon color */
+}
+.avatar{
+  margin-left: 2.5rem; 
+}
+.logo{
+  font-size: xx-large;
+}
+.logout-btn {
+color: blue;
+}
   .mobileimg {
     margin-left: 3rem;
     border: 2px solid green !important;
