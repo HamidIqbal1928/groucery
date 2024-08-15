@@ -24,7 +24,6 @@
                 <v-btn outlined class="mt-n2 add small-btn bordered-btn" @click="increment(product)">
                   <v-icon color="green">mdi-plus</v-icon>
                 </v-btn>
-  
                 <div class="btn">
                   <v-btn class="mx-2 mt-n3 small-btn bordered-btn" fab dark small color="green">
                     <v-icon dark>mdi-shopping</v-icon>
