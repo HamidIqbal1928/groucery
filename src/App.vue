@@ -122,7 +122,7 @@ export default {
       usersArray: [
         {
           name: "Muhammad Numan",
-          email: "numanrazzaq@gmail.com",
+          email: "numanrazzaq123@gmail.com",
           password: "12345678",
           image: p2,
           phNo: "03041792624",
@@ -131,7 +131,7 @@ export default {
         },
         {
           name: "Hamid",
-          email: "hamid@gmail.com",
+          email: "hamid313500@gmail.com",
           password: "12345678",
           image: p1,
           phNo: "03041792624",
@@ -143,10 +143,10 @@ export default {
       dataValidationRules: {
         email: [
           value => {
-            if (/^[a-z.-]+@[a-z.-]*\d{3,10}[a-z.-]*\.[a-z]+$/i.test(value)) {
+            if (/^[a-z.-]*\d{3,10}[a-z.-]*@[a-z.-]+\.[a-z]+$/i.test(value)) {
               return true;
             }
-            return 'Email must be valid and contain between 3 and 10 numbers after the @ symbol.';
+            return 'Email must be valid and contain between 3 and 10 numbers before the @ symbol.';
           },
         ],
         password: [
